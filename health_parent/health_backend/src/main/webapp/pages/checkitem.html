@@ -228,11 +228,12 @@
         },
         //钩子函数，VUE对象初始化完成后自动执行
         created() {
-          this.findPage();//vue对象初始化完成后调用分页查询方法，完成分页查询
+            this.findPage();//vue对象初始化完成后调用分页查询方法，完成分页查询
         },
         methods: {
             //编辑
             handleEdit() {
+                //this.dialogFormVisible4Edit = true;
             },
             //添加
             handleAdd() {
@@ -252,7 +253,7 @@
                                     message: res.data.message,
                                     type: 'success'
                                 });
-                            }else{
+                            } else {
                                 //提交失败
                                 //弹出提示信息
                                 this.$message({
@@ -272,15 +273,15 @@
             findPage() {
                 //发送Ajax请求，提交分页相关请求参数（页码，每页显示的记录数，查询条件）
                 //分页参数
-                var param ={
-                    currentPage : this.pagination.currentPage,
-                    pageSize : this.pagination.pageSize,
-                    queryString : this.pagination.queryString
+                var param = {
+                    currentPage: this.pagination.currentPage,
+                    pageSize: this.pagination.pageSize,
+                    queryString: this.pagination.queryString
                 };
-                axios.post("/checkitem/findPage.do",param).then((res)=>{
+                axios.post("/checkitem/findPage.do", param).then((res) => {
                     //解析Controller响应回的数据，为模型数据赋值
-                   this.pagination.total =  res.data.total;
-                   this.dataList = res.data.rows;
+                    this.pagination.total = res.data.total;
+                    this.dataList = res.data.rows;
                 });
             },
             // 重置表单
@@ -304,8 +305,28 @@
             },
             // 删除
             handleDelete(row) {
+                // alert(row.id());
+                this.#confirm("确定删除当前选中记录吗？", "提示", {type: 'warning'})
+                    .then(() => {
+                    axios.get("/checkitem/delete.do?id=" + row.id).then((res) => {
+                        if (res.data.flag) {
+                            //删除成功
+                            this.$message({
+                                message: res.data.message,
+                                type: 'success'
+                            })
+                        } else {
+                            this.$message({
+                                message: res.data.message,
+                                type: 'error'
+                            });
+                        }
+                    }).finally(() => {
+                        this.findPage();
+                    });
+                });
             }
         }
-    })
+    });
 </script>
 </html>

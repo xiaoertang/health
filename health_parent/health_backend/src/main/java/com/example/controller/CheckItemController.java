@@ -40,4 +40,18 @@ public class CheckItemController {
         PageResult pageResult = checkItemService.pageQuery(queryPageBean);
         return pageResult;
     }
+
+    //删除选中的记录
+    @GetMapping("/delete")
+    public Result delete(Integer id){
+        try{
+            checkItemService.delete(id);
+        }catch (RuntimeException e){
+            return new Result(false,e.getMessage());
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false,MessageConstant.DELETE_CHECKGROUP_FAIL);
+        }
+        return new Result(true,MessageConstant.DELETE_CHECKGROUP_SUCCESS);
+    }
 }
