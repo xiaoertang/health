@@ -1,5 +1,7 @@
 package com.example.service;
 
+import com.example.entity.PageResult;
+import com.example.entity.QueryPageBean;
 import com.example.pojo.CheckItem;
 
 /**
@@ -9,4 +11,5 @@ import com.example.pojo.CheckItem;
  */
 public interface CheckItemService {
     public void add(CheckItem checkItem);
+    public PageResult pageQuery(QueryPageBean queryPageBean);
 }

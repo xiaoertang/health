@@ -1,6 +1,8 @@
 package com.example.dao;
 
 import com.example.pojo.CheckItem;
+import com.github.pagehelper.Page;
+
 
 /**
  * @author 唐孝顺
@@ -8,4 +10,5 @@ import com.example.pojo.CheckItem;
  */
 public interface CheckItemDao {
     public void add(CheckItem checkItem);
+    public Page<CheckItem> selectByCondition(String queryString);
 }
