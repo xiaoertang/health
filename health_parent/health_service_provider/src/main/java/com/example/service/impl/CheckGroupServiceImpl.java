@@ -2,8 +2,11 @@ package com.example.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.example.dao.CheckGroupDao;
+import com.example.entity.PageResult;
 import com.example.pojo.CheckGroup;
 import com.example.service.CheckGroupService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,4 +42,23 @@ public class CheckGroupServiceImpl implements CheckGroupService {
             checkGroupDao.setCheckGroupAndCheckItem(map);
         }
     }
+
+    //分页
+    @Override
+    public PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString) {
+        PageHelper.startPage(currentPage,pageSize);
+        Page<CheckGroup> page = checkGroupDao.selectByCondition(queryString);
+        return new PageResult(page.getTotal(),page.getResult());
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        checkGroupDao.deleteCheckGroupAndCheckItemByCheckGroupById(id);
+        checkGroupDao.deleteById(id);
+
+//        if(count == 0){
+//            throw new RuntimeException("当前检查组被引用，不能删除！");
+//        }
+    }
+
 }
