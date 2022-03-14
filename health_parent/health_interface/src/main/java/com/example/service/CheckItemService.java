@@ -4,6 +4,8 @@ import com.example.entity.PageResult;
 import com.example.entity.QueryPageBean;
 import com.example.pojo.CheckItem;
 
+import java.util.List;
+
 /**
  * @author 唐孝顺
  * @date 2022/3/13 14:01
@@ -15,4 +17,5 @@ public interface CheckItemService {
     public void delete(Integer id);
     public void edit(CheckItem checkItem);
     public CheckItem findById(Integer id);
+    public List<CheckItem> findAll();
 }

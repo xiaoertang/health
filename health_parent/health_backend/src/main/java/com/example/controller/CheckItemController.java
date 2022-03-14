@@ -11,6 +11,7 @@ import com.example.service.CheckItemService;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 
 /**
@@ -80,5 +81,18 @@ public class CheckItemController {
             //服务调用失败
             return new Result(false,MessageConstant.QUERY_CHECKITEM_FAIL);
         }
+    }
+
+    //查找所有的检查项
+    @GetMapping("/findAll")
+    public Result findAll(){
+        try{
+            List<CheckItem> list = checkItemService.findAll();
+            return new Result(true,MessageConstant.QUERY_CHECKITEM_SUCCESS,list);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false,MessageConstant.QUERY_CHECKITEM_FAIL);
+        }
+
     }
 }

@@ -3,6 +3,8 @@ package com.example.dao;
 import com.example.pojo.CheckItem;
 import com.github.pagehelper.Page;
 
+import java.util.List;
+
 
 /**
  * @author 唐孝顺
@@ -15,4 +17,5 @@ public interface CheckItemDao {
     public void deleteById(Integer id);
     public void edit(CheckItem checkItem);
     public CheckItem findById(Integer id);
+    public List<CheckItem> findAll();
 }

@@ -55,14 +55,21 @@ public class CheckItemServiceImpl implements CheckItemService {
         }
         checkItemDao.deleteById(id);
     }
-
+    //编辑检查项
     @Override
     public void edit(CheckItem checkItem) {
         checkItemDao.edit(checkItem);
     }
-
+    //查找选中的检查项
     @Override
     public CheckItem findById(Integer id) {
         return checkItemDao.findById(id);
     }
+    //查找所有的检查项
+    @Override
+    public List<CheckItem> findAll() {
+        return checkItemDao.findAll();
+    }
+
+
 }

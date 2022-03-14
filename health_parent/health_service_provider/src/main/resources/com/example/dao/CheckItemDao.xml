@@ -22,7 +22,9 @@
     </delete>
     <!--    根据检查项id查询中间关系表-->
     <select id="findCountByCheckItemId" resultType="long" parameterType="int">
-        select count(*) from t_checkgroup_checkitem where checkitem_id = #{checkitem_id}
+        select count(*)
+        from t_checkgroup_checkitem
+        where checkitem_id = #{checkitem_id}
     </select>
     <!--编辑-->
     <update id="edit" parameterType="com.example.pojo.CheckItem">
@@ -55,8 +57,15 @@
         </set>
         where id = #{id}
     </update>
-
+    <!--    查找选中的检查项-->
     <select id="findById" parameterType="int" resultType="com.example.pojo.CheckItem">
-        select * from t_checkitem where id = #{id}
+        select *
+        from t_checkitem
+        where id = #{id}
+    </select>
+    <!--    查找所有-->
+    <select id="findAll" resultType="com.example.pojo.CheckItem">
+        select *
+        from t_checkitem
     </select>
 </mapper>
