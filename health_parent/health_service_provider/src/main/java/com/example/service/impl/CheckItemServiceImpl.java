@@ -44,6 +44,7 @@ public class CheckItemServiceImpl implements CheckItemService {
         return new PageResult(total,rows);
     }
 
+    //删除检查项
     @Override
     public void delete(Integer id)throws  RuntimeException{
         //查询当前检查项和检查组关联
@@ -53,5 +54,15 @@ public class CheckItemServiceImpl implements CheckItemService {
             throw new RuntimeException("当前检查项被引用，不能删除！");
         }
         checkItemDao.deleteById(id);
+    }
+
+    @Override
+    public void edit(CheckItem checkItem) {
+        checkItemDao.edit(checkItem);
+    }
+
+    @Override
+    public CheckItem findById(Integer id) {
+        return checkItemDao.findById(id);
     }
 }

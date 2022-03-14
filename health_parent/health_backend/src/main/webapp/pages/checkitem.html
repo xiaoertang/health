@@ -233,7 +233,38 @@
         methods: {
             //编辑
             handleEdit() {
-                //this.dialogFormVisible4Edit = true;
+                //表单校验
+                this.$refs['dataEditForm'].validate((valid) => {
+                    if (valid) {
+                        //表单校验通过，发送请求
+                        axios.post("/checkitem/edit.do", this.formData).then((res) => {
+
+                            if (res.data.flag) {
+                                //编辑成功，弹出成功提示
+                                this.$message({
+                                    message: res.data.message,
+                                    type: 'success'
+                                });
+                            } else {
+                                this.$message({
+                                    message: res.data.message,
+                                    type: 'error'
+                                });
+                            }
+                        }).finally(() => {
+                            //重新发送请求查询分页数据
+                            this.findPage();
+                            //隐藏编辑窗口
+                            this.dialogFormVisible4Edit = false;
+                        });
+                    } else {
+                        //表单校验失败
+                        this.$message.error("表单数据校验失败");
+                        return false;
+                    }
+
+                });
+
             },
             //添加
             handleAdd() {
@@ -295,6 +326,20 @@
             },
             // 弹出编辑窗口
             handleUpdate(row) {
+                //发起请求获取检查项信息
+                axios.get("/checkitem/findById.do?id=" + row.id).then((res) => {
+                    if (res.data.flag) {
+                        //设置编辑窗口属性，dialogFormVisible4Edit为true打开编辑窗口
+                        this.dialogFormVisible4Edit = true;
+                        //为模型数据设置值，基于VUE双向数据绑定回显到页面
+                        this.formData = res.data.data;
+                    } else {
+                        this.$message({
+                            message: res.data.message,
+                            type: 'error'
+                        })
+                    }
+                });
             },
             //切换页码
             handleCurrentChange(currentPage) {
@@ -306,8 +351,9 @@
             // 删除
             handleDelete(row) {
                 // alert(row.id());
-                this.#confirm("确定删除当前选中记录吗？", "提示", {type: 'warning'})
-                    .then(() => {
+                this.$confirm("确定删除当前选中记录吗？", "提示", {
+                    type: 'warning'
+                }).then(() => {
                     axios.get("/checkitem/delete.do?id=" + row.id).then((res) => {
                         if (res.data.flag) {
                             //删除成功

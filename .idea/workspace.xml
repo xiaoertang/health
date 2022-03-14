@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de890d82-617d-4d6e-b893-616eb1d94230" name="Default Changelist" comment="分页功能实现">
+    <list default="true" id="de890d82-617d-4d6e-b893-616eb1d94230" name="Default Changelist" comment="检查项删除功能实现">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/CheckItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/CheckItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/checkitem.html" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/checkitem.html" afterDir="false" />
@@ -23,8 +23,8 @@
       <list>
         <option value="Kotlin File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -83,20 +83,7 @@
       <recent name="E:\projects\health\health_parent\health_backend\src\main\webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.health_backend [tomcat7:run]">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Maven.health_service_provider [tomcat7:run]">
     <configuration name="health_backend [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -149,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Maven.health_backend [tomcat7:run]" />
         <item itemvalue="Maven.health_service_provider [tomcat7:run]" />
+        <item itemvalue="Maven.health_backend [tomcat7:run]" />
       </list>
     </recent_temporary>
   </component>
@@ -166,7 +153,8 @@
       <option name="presentableId" value="Default" />
       <updated>1647070656652</updated>
       <workItem from="1647070658752" duration="6030000" />
-      <workItem from="1647137163342" duration="26646000" />
+      <workItem from="1647137163342" duration="33378000" />
+      <workItem from="1647226517108" duration="2578000" />
     </task>
     <task id="LOCAL-00001" summary="分页功能实现">
       <created>1647167932781</created>
@@ -175,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647167932781</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="检查项删除功能实现">
+      <created>1647178466310</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1647178466310</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,10 +186,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="分页功能实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="分页功能实现" />
+    <MESSAGE value="检查项删除功能实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="检查项删除功能实现" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
