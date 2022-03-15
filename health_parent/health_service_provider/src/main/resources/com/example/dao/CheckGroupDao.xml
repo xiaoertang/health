@@ -76,4 +76,8 @@
         </set>
         where id = #{id}
     </update>
+
+    <select id="findAll" resultType="com.example.pojo.CheckGroup">
+        select * from t_checkgroup
+    </select>
 </mapper>

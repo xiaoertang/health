@@ -28,4 +28,7 @@ public interface CheckGroupDao {
     public List<Integer> findCheckItemIdsByCheckGroupId(Integer id);
     public void deleteAssociation(Integer id);
     public void edit(CheckGroup checkGroup);
+
+    //查询所有
+    public List<CheckGroup> findAll();
 }

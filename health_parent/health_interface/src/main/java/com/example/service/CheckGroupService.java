@@ -23,4 +23,6 @@ public interface CheckGroupService {
     public List<Integer> findCheckItemIdsByCheckGroupId(Integer id);
     //编辑
     public void edit(CheckGroup checkGroup,Integer[] checkitemIds);
+    //查询所有
+    public List<CheckGroup> findAll();
 }
