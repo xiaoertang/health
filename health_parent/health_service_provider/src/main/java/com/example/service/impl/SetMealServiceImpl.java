@@ -1,6 +1,7 @@
 package com.example.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.example.constant.RedisConstant;
 import com.example.dao.SetMealDao;
 import com.example.entity.PageResult;
 import com.example.pojo.CheckGroup;
@@ -10,6 +11,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.JedisPool;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,15 +22,24 @@ import java.util.Map;
  */
 @Service(interfaceClass = SetMealService.class)
 @Transactional
+@SuppressWarnings({"all"})
 public class SetMealServiceImpl implements SetMealService {
     @Autowired
     private SetMealDao setMealDao;
-
+    @Autowired
+    private JedisPool jedisPool;
+    //新增套餐
     @Override
     public void add(Setmeal setmeal, Integer[] checkgroupIds) {
             setMealDao.add(setmeal);
             this.setSetMealAndCheckGroup(setmeal,checkgroupIds);
+            this.savePic2Redis(setmeal.getImg());
     }
+    //将图片名称保存到Redis
+    private void savePic2Redis(String pic){
+        jedisPool.getResource().sadd(RedisConstant.SETMEAL_PIC_DB_RESOURCES,pic);
+    }
+
     //设置套餐和检查组合的关联关系
     public void setSetMealAndCheckGroup(Setmeal setmeal, Integer[] checkgroupIds) {
         if (checkgroupIds != null && checkgroupIds.length > 0) {
