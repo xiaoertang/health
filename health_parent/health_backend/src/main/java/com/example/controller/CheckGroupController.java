@@ -9,6 +9,9 @@ import com.example.pojo.CheckGroup;
 import com.example.service.CheckGroupService;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.ResultSet;
+import java.util.List;
+
 
 /**
  * @author 唐孝顺
@@ -57,4 +60,37 @@ public class CheckGroupController {
         return new Result(true, MessageConstant.DELETE_CHECKGROUP_SUCCESS);
     }
 
+    //根据id查询
+    @GetMapping("/findById")
+    public Result findById(Integer id){
+        CheckGroup checkGroup = checkGroupService.findById(id);
+        if(checkGroup != null){
+            Result result = new Result(true,MessageConstant.QUERY_CHECKGROUP_SUCCESS);
+            result.setData(checkGroup);
+            return result;
+        }
+        return new Result(false,MessageConstant.QUERY_CHECKGROUP_FAIL);
+    }
+
+    //根据检查组id查询对应的所有的检查项id
+    @GetMapping("/findCheckItemIdsByCheckGroupId")
+    public Result findCheckItemIdsByCheckGroupId(Integer id){
+        try{
+            List<Integer> checkitemIds = checkGroupService.findCheckItemIdsByCheckGroupId(id);
+            return new Result(true,MessageConstant.QUERY_CHECKITEM_SUCCESS,checkitemIds);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false,MessageConstant.QUERY_CHECKITEM_FAIL);
+        }
+    }
+    //编辑
+    @PostMapping("/edit")
+    public Result edit(@RequestBody CheckGroup checkGroup,Integer[] checkitemIds){
+        try {
+            checkGroupService.edit(checkGroup,checkitemIds);
+        }catch (Exception e){
+            return new Result(false,MessageConstant.EDIT_CHECKGROUP_FAIL);
+        }
+        return new Result(true,MessageConstant.EDIT_CHECKGROUP_SUCCESS);
+    }
 }

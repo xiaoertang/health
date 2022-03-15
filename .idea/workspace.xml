@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de890d82-617d-4d6e-b893-616eb1d94230" name="Default Changelist" comment="检查组管理新增功能实现">
+    <list default="true" id="de890d82-617d-4d6e-b893-616eb1d94230" name="Default Changelist" comment="检查组管理删除功能实现">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/CheckGroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/CheckGroupController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/checkgroup.html" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/checkgroup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/checkitem.html" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/checkitem.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_interface/src/main/java/com/example/service/CheckGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_interface/src/main/java/com/example/service/CheckGroupService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/CheckGroupDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/CheckGroupDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/CheckGroupServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/CheckGroupServiceImpl.java" afterDir="false" />
@@ -60,7 +61,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../springboot/ch08_ssmp" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -83,18 +84,7 @@
       <recent name="E:\projects\health\health_parent\health_backend\src\main\webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.health_service_provider [tomcat7:run]">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Maven.health_backend [tomcat7:run]">
     <configuration name="health_backend [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -147,8 +137,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Maven.health_service_provider [tomcat7:run]" />
         <item itemvalue="Maven.health_backend [tomcat7:run]" />
+        <item itemvalue="Maven.health_service_provider [tomcat7:run]" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +155,8 @@
       <updated>1647070656652</updated>
       <workItem from="1647070658752" duration="6030000" />
       <workItem from="1647137163342" duration="33378000" />
-      <workItem from="1647226517108" duration="19884000" />
+      <workItem from="1647226517108" duration="25259000" />
+      <workItem from="1647311922873" duration="6492000" />
     </task>
     <task id="LOCAL-00001" summary="分页功能实现">
       <created>1647167932781</created>
@@ -195,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647242234142</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="检查组管理删除功能实现">
+      <created>1647248919290</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1647248919290</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +216,8 @@
     <MESSAGE value="检查项删除功能实现" />
     <MESSAGE value="编辑功能实现" />
     <MESSAGE value="检查组管理新增功能实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="检查组管理新增功能实现" />
+    <MESSAGE value="检查组管理删除功能实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="检查组管理删除功能实现" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

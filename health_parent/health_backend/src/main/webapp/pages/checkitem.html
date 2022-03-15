@@ -238,7 +238,6 @@
                     if (valid) {
                         //表单校验通过，发送请求
                         axios.post("/checkitem/edit.do", this.formData).then((res) => {
-
                             if (res.data.flag) {
                                 //编辑成功，弹出成功提示
                                 this.$message({
@@ -262,9 +261,7 @@
                         this.$message.error("表单数据校验失败");
                         return false;
                     }
-
                 });
-
             },
             //添加
             handleAdd() {

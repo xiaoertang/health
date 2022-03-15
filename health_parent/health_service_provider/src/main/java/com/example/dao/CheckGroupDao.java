@@ -4,6 +4,7 @@ import com.example.pojo.CheckGroup;
 import com.example.service.CheckGroupService;
 import com.github.pagehelper.Page;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,4 +22,10 @@ public interface CheckGroupDao {
     public void deleteById(Integer id);
     //删除映射关系
     public void deleteCheckGroupAndCheckItemByCheckGroupById(Integer checkgroup_id);
+    //根据id插叙
+    public CheckGroup findById(Integer id);
+
+    public List<Integer> findCheckItemIdsByCheckGroupId(Integer id);
+    public void deleteAssociation(Integer id);
+    public void edit(CheckGroup checkGroup);
 }
