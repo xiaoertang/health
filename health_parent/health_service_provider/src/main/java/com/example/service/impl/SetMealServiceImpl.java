@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import redis.clients.jedis.JedisPool;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,6 +39,7 @@ public class SetMealServiceImpl implements SetMealService {
     //将图片名称保存到Redis
     private void savePic2Redis(String pic){
         jedisPool.getResource().sadd(RedisConstant.SETMEAL_PIC_DB_RESOURCES,pic);
+        //jedisPool.close();
     }
 
     //设置套餐和检查组合的关联关系
@@ -59,5 +61,10 @@ public class SetMealServiceImpl implements SetMealService {
         PageHelper.startPage(currentPage, pageSize);
         Page<Setmeal> page = setMealDao.selectByCondition(queryString);
         return new PageResult(page.getTotal(), page.getResult());
+    }
+
+    @Override
+    public List<Setmeal> findAll() {
+        return setMealDao.findAll();
     }
 }

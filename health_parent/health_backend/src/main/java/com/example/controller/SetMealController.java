@@ -46,6 +46,7 @@ public class SetMealController {
             QiniuUtils.upload2Qiniu(imgFile.getBytes(),fileName);
             //将上传图片名称存入Redis，基于Redis的Set集合存储
             jedisPool.getResource().sadd(RedisConstant.SETMEAL_PIC_RESOURCES,fileName);
+            //jedisPool.close();
             //图片上传成功
             return new Result(true, MessageConstant.PIC_UPLOAD_SUCCESS,fileName);
         } catch (Exception e) {

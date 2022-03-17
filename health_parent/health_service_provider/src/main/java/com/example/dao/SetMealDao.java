@@ -5,6 +5,7 @@ import com.example.pojo.Setmeal;
 import com.example.service.SetMealService;
 import com.github.pagehelper.Page;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -18,4 +19,6 @@ public interface SetMealDao {
     public void setSetMealAndCheckGroup(Map map);
     //分页
     public Page<Setmeal> selectByCondition(String queryString);
+    //查询所有
+    public List<Setmeal> findAll();
 }
