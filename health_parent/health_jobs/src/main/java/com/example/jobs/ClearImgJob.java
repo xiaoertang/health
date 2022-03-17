@@ -13,6 +13,7 @@ import java.util.Set;
  * @date 2022/3/15 19:10
  * 自定义Job,实现定时清理垃圾图片
  */
+@SuppressWarnings({"all"})
 public class ClearImgJob {
      @Autowired
      private JedisPool jedisPool;
