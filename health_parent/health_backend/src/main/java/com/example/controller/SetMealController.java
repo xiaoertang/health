@@ -39,7 +39,7 @@ public class SetMealController {
         //获取最后一个'.'的位置
         int index = originalFilename.lastIndexOf(".");
         //获取文件的后缀，包括‘.’
-        String suffix = originalFilename.substring(index - 1);
+        String suffix = originalFilename.substring(index);
         //使用UUID生成文件名
         String fileName = UUID.randomUUID().toString() + suffix;
         try {

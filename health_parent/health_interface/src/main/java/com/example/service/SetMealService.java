@@ -17,4 +17,6 @@ public interface SetMealService {
     public PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString);
     //查找所有
     public List<Setmeal> findAll();
+    //根据id查询
+    public Setmeal findById(Integer id);
 }

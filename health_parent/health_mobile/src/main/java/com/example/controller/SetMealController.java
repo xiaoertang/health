@@ -31,4 +31,15 @@ public class SetMealController {
             return new Result(false, MessageConstant.GET_SETMEAL_LIST_FAIL);
         }
     }
+
+    @GetMapping("/findById")
+    public Result findById(Integer id){
+        try{
+            Setmeal setmeal = setMealService.findById(id);
+            return new Result(true,MessageConstant.QUERY_SETMEAL_SUCCESS,setmeal);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false, MessageConstant.QUERY_SETMEAL_FAIL);
+        }
+    }
 }

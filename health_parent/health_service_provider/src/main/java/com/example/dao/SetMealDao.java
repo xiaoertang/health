@@ -21,4 +21,6 @@ public interface SetMealDao {
     public Page<Setmeal> selectByCondition(String queryString);
     //查询所有
     public List<Setmeal> findAll();
+    //根据id查询
+    public Setmeal findById(Integer id);
 }

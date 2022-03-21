@@ -31,4 +31,6 @@ public interface CheckGroupDao {
 
     //查询所有
     public List<CheckGroup> findAll();
+
+
 }

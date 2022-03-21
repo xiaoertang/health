@@ -9,10 +9,16 @@ import com.example.pojo.Setmeal;
 import com.example.service.SetMealService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import redis.clients.jedis.JedisPool;
 
+import java.io.*;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,16 +35,24 @@ public class SetMealServiceImpl implements SetMealService {
     private SetMealDao setMealDao;
     @Autowired
     private JedisPool jedisPool;
+    @Autowired
+    private FreeMarkerConfigurer freeMarkerConfigurer;
+    @Value("${out_put_path}")//从属性文件读取输出目录的路径
+    private String outputpath;
+
     //新增套餐
     @Override
     public void add(Setmeal setmeal, Integer[] checkgroupIds) {
-            setMealDao.add(setmeal);
-            this.setSetMealAndCheckGroup(setmeal,checkgroupIds);
-            this.savePic2Redis(setmeal.getImg());
+        setMealDao.add(setmeal);
+        this.setSetMealAndCheckGroup(setmeal, checkgroupIds);
+        this.savePic2Redis(setmeal.getImg());
+        //新增套餐后需要重新生成静态页面
+        this.generateMobileStaticHtml();
     }
+
     //将图片名称保存到Redis
-    private void savePic2Redis(String pic){
-        jedisPool.getResource().sadd(RedisConstant.SETMEAL_PIC_DB_RESOURCES,pic);
+    private void savePic2Redis(String pic) {
+        jedisPool.getResource().sadd(RedisConstant.SETMEAL_PIC_DB_RESOURCES, pic);
         //jedisPool.close();
     }
 
@@ -55,6 +69,56 @@ public class SetMealServiceImpl implements SetMealService {
         }
     }
 
+    //生成静态页面
+    public void generateMobileStaticHtml() {
+        //准备模板数据
+        List<Setmeal> setmealList = this.findAll();
+        //生成套餐列表静态页面
+        this.generateMobleSetmealListHtml(setmealList);
+        //生成套餐详细静态页面
+        this.generateMobleSetmealDetailHtml(setmealList);
+    }
+    //生成套餐列表静态页面
+    public void generateMobleSetmealListHtml(List<Setmeal> setmealList){
+      Map<String, Object> dataMap = new HashMap<String, Object>();
+      dataMap.put("setmealList",setmealList);
+      this.generateHtml("mobile_setmeal.ftl","m_setmeal", dataMap);
+    }
+    //生成套餐详细静态页面（多个）
+    public void generateMobleSetmealDetailHtml(List<Setmeal> setmealList) {
+        for (Setmeal setmeal : setmealList) {
+            Map<String, Object> dataMap = new HashMap<>();
+            dataMap.put("setmeal",this.findById(setmeal.getId()));
+            this.generateHtml("mobile_setmeal_detail.ftl",
+                    "setmeal_detail_" + setmeal.getId(),
+                    dataMap);
+        }
+    }
+
+    public void generateHtml(String temlateName, String htmlPageName, Map<String, Object> dataMap) {
+        Configuration configuration = freeMarkerConfigurer.getConfiguration();
+        Writer out = null;
+        try {
+            //加载模板文件
+            Template template = configuration.getTemplate(temlateName);
+            //生成数据
+            File docFile = new File(outputpath + "\\" + htmlPageName + ".html");
+            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(docFile)));
+            //输出文件
+            template.process(dataMap, out);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (out != null) {
+                    out.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     //分页
     @Override
     public PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString) {
@@ -66,5 +130,10 @@ public class SetMealServiceImpl implements SetMealService {
     @Override
     public List<Setmeal> findAll() {
         return setMealDao.findAll();
+    }
+
+    @Override
+    public Setmeal findById(Integer id) {
+        return setMealDao.findById(id);
     }
 }
