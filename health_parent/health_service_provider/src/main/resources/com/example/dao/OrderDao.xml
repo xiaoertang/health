@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.dao.OrderDao">
+    <resultMap id="baseResultMap" type="com.example.pojo.Order">
+        <id column="id" property="id"/>
+        <result column="member_id" property="memberId"/>
+        <result column="orderDate" property="orderDate"/>
+        <result column="orderType" property="orderType"/>
+        <result column="orderStatus" property="orderStatus"/>
+        <result column="setmeal_id" property="setmealId"/>
+    </resultMap>
+    <!--    新增-->
+    <insert id="add">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into t_order(member_id, orderDate, orderType, orderStatus, setmeal_id)
+        VALUES(#{memberId},#{orderDate},#{orderType}),#{orderStatus},#{setmealId})
+    </insert>
+    <!--    动态查询条件-->
+    <select id="findByCondition"
+            resultMap="baseResultMap"
+            parameterType="com.example.pojo.Order">
+        select * from t_order
+        <where>
+            <if test="id != null">
+                and id=#{id}
+            </if>
+            <if test="memberId != null">
+                and memberId = #{memberId}
+            </if>
+            <if test="orderDate != null">
+                and orderDate = #{orderDate}
+            </if>
+            <if test="orderType != null">
+                and orderType = #{orderType}
+            </if>
+            <if test="orderStatus != null">
+                and orderStatus = #{orderStatus}
+            </if>
+            <if test="setmealId != null">
+                and setmealId = #{setmealId}
+            </if>
+        </where>
+    </select>
+</mapper>

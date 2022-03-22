@@ -13,6 +13,12 @@
         set number = #{number}
         where orderDate = #{date}
     </update>
+    <!--更新已预约人数-->
+    <update id="editReservationsByOrderDate" parameterType="com.example.pojo.OrderSetting">
+        update t_ordersetting
+        set reservations = #{reservations}
+        where orderDate = #{orderDate}
+    </update>
     <!--    根据预约日期查询-->
     <select id="findCountByOrderDate" parameterType="string" resultType="long">
         select count(*)
@@ -23,6 +29,11 @@
         select *
         from t_ordersetting
         where orderDate between #{dateBegin} and #{dateEnd}
+    </select>
+    <select id="findByOrderDate" parameterType="date" resultType="com.example.pojo.OrderSetting">
+        select *
+        from t_ordersetting
+        where orderDate = #{orderDate}
     </select>
 
 </mapper>
