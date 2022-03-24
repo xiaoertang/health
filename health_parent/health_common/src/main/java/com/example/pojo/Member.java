@@ -12,7 +12,7 @@ public class Member implements Serializable{
     private String name;//姓名
     private String sex;//性别
     private String idCard;//身份证号
-    private String phoneNumber;//手机号
+    //private String phoneNumber;//手机号
     private Date regTime;//注册时间
     private String password;//登录密码
     private String email;//邮箱
@@ -59,14 +59,6 @@ public class Member implements Serializable{
         this.idCard = idCard;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public Date getRegTime() {
         return regTime;
     }
@@ -105,5 +97,21 @@ public class Member implements Serializable{
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", fileNumber='" + fileNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", idCard='" + idCard + '\'' +
+                ", regTime=" + regTime +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", birthday=" + birthday +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

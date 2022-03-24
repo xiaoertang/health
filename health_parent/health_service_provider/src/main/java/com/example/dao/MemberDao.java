@@ -7,8 +7,10 @@ import com.example.pojo.Member;
  * @date 2022/3/22 14:30
  */
 public interface MemberDao {
-    //根据手机号查询
-    public Member findByTelephone(String telephone);
+    //根据邮箱地址查询
+    public Member findByEmail(String email);
     //新增
     public void add(Member member);
+    //根据id查询
+    public Member findById(Integer id);
 }

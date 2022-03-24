@@ -7,6 +7,7 @@ import com.example.entity.Result;
 import com.example.pojo.Order;
 import com.example.service.OrderService;
 import com.example.utils.SMSUtils;
+import com.example.utils.SendMailUtils;
 import org.aspectj.bridge.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.JedisPool;
 
+import java.sql.ResultSet;
 import java.util.Map;
 
 /**
@@ -32,11 +34,11 @@ public class OrderController {
 
     @PostMapping("/submit")
     public Result submitOrder(@RequestBody Map map){
-        //从map中获取手机号码
-        String telephone = (String) map.get("telephone");
+        //从map中获取邮箱地址
+        String email = (String) map.get("email");
         //从缓存中取得验证码
         String codeInRedis = jedisPool.getResource().get(
-                telephone + RedisMessageConstant.SENDTYPE_ORDER);
+                email + RedisMessageConstant.SENDTYPE_LOGIN);
         //从map中获取验证码
         String validateCode = (String) map.get("validateCode");
         //校验验证码
@@ -57,14 +59,25 @@ public class OrderController {
             //预约成功
             String orderData = (String) map.get("orderData");
             try{
+
                 //发送预约成功短信
-                SMSUtils.sendShortMessage(SMSUtils.ORDER_NOTICE,telephone,orderData);
+                //SMSUtils.sendShortMessage(SMSUtils.ORDER_NOTICE,telephone,orderData);
+                SendMailUtils.Send(email,email + " 用户预约成功！");
             }catch (Exception e){
                 e.printStackTrace();
-
             }
         }
-       return result;
+        return result;
     }
 
+    @PostMapping("/findById")
+    public Result findById(Integer id){
+        try{
+           Map map = orderService.findById(id);
+           return new Result(true,MessageConstant.QUERY_ORDER_SUCCESS,map);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false, MessageConstant.QUERY_ORDER_FAIL);
+        }
+    }
 }

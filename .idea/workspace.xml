@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de890d82-617d-4d6e-b893-616eb1d94230" name="Default Changelist" comment="移动端套餐列表和详细页面实现静态页面">
-      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/src/main/java/com/example/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/java/com/example/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/java/com/example/controller/ValidateCodeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/MemberDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/OrderDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/MemberDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/OrderDao.xml" afterDir="false" />
+    <list default="true" id="de890d82-617d-4d6e-b893-616eb1d94230" name="Default Changelist" comment="移动端实现体检预约功能">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_5_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_email_1_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/entity/Email.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/utils/SendMailUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_common/src/test/java/com/example/EmailTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/src/main/java/com/example/service/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/java/com/example/controller/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/pages/member.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/VO/OrderInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_backend_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_backend_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_jobs_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_jobs_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_mobile_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_mobile_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/health_service_provider_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/health_service_provider_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_dubbo_2_6_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_dubbo_2_6_0.xml" afterDir="false" />
@@ -91,10 +101,34 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_0_5_RELEASE.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/OrderSettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/OrderSettingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/pojo/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/pojo/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/pojo/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/pojo/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/pojo/OrderSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/pojo/OrderSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/utils/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_common/src/main/java/com/example/utils/DateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_common/src/test/java/com/example/DateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_common/src/test/java/com/example/DateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_interface/src/main/java/com/example/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_interface/src/main/java/com/example/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_mobile/src/main/java/com/example/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/java/com/example/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_mobile/src/main/java/com/example/controller/SetMealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/java/com/example/controller/SetMealController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_mobile/src/main/java/com/example/controller/ValidateCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/java/com/example/controller/ValidateCodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/pages/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/pages/orderInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/pages/orderInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/pages/setmeal_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/pages/setmeal_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/plugins/healthmobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/plugins/healthmobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/MemberDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/OrderDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/OrderSettingDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/OrderSettingDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/SetMealDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/SetMealDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/OrderSettingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/OrderSettingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/MemberDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/MemberDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/OrderDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/OrderDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/OrderSettingDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/OrderSettingDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/SetMealDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/SetMealDao.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,8 +140,8 @@
       <list>
         <option value="Kotlin File" />
         <option value="package-info" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -125,9 +159,13 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\apache-maven\.m2\repository" />
-        <option name="userSettingsFile" value="D:\apache-maven\.m2\settings.xml" />
+        <option name="localRepository" value="G:\新建文件夹\黑马程序员\资料-传智健康项目\day01\资源\repository_boot\repository_boot" />
       </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="1.8" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="26HBTK2PszAwrpalTq5b6e12Y4k" />
@@ -146,23 +184,23 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/health_parent/health_mobile/src/main/webapp/pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15346535" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.19710907" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\projects\health\health_parent\health_mobile\src\main\webapp\pages" />
       <recent name="E:\projects\health\health_parent\health_service_provider\src\main\resources\com\example\dao" />
       <recent name="E:\projects\health\health_parent\health_mobile\src\main\webapp" />
       <recent name="E:\projects\health\health_parent\health_mobile\web" />
       <recent name="E:\projects\health\health_parent\health_common\src\main\java\com\example\utils" />
-      <recent name="E:\projects\health\health_parent\health_common\src\main\java\com\example\constant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\projects\health\health_parent\health_service_provider\src\main\webapp\WEB-INF\ftl" />
@@ -171,19 +209,34 @@
       <recent name="E:\projects\health\health_parent\health_backend\src\main\webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.health_mobile [tomcat7:run]">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Maven.health_service_provider [tomcat7:run]">
+    <configuration name="MD5Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.utils.MD5Utils" />
+      <module name="health_common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DateTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DateTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="health_common" />
       <extension name="coverage">
         <pattern>
@@ -193,52 +246,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example" />
       <option name="MAIN_CLASS_NAME" value="com.example.DateTest" />
+      <option name="METHOD_NAME" value="test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="health_service_provider" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="POITest.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="health_common" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example" />
-      <option name="MAIN_CLASS_NAME" value="com.example.POITest" />
-      <option name="METHOD_NAME" value="test3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="health_backend [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="tomcat7:run" />
-              </list>
-            </option>
-            <option name="pomFileName" value="pom.xml" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$/health_parent/health_backend" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
     </configuration>
     <configuration name="health_mobile [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
@@ -292,11 +314,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Maven.health_mobile [tomcat7:run]" />
         <item itemvalue="Maven.health_service_provider [tomcat7:run]" />
-        <item itemvalue="Maven.health_backend [tomcat7:run]" />
-        <item itemvalue="JUnit.DateTest.test" />
-        <item itemvalue="JUnit.POITest.test3" />
+        <item itemvalue="Maven.health_mobile [tomcat7:run]" />
+        <item itemvalue="Application.MD5Utils" />
+        <item itemvalue="JUnit.DateTest.test2" />
+        <item itemvalue="JUnit.test.test" />
       </list>
     </recent_temporary>
   </component>
@@ -322,7 +344,10 @@
       <workItem from="1647846832336" duration="11568000" />
       <workItem from="1647917448929" duration="414000" />
       <workItem from="1647918083995" duration="45000" />
-      <workItem from="1647918494786" duration="9754000" />
+      <workItem from="1647918494786" duration="15117000" />
+      <workItem from="1647941827141" duration="16501000" />
+      <workItem from="1648003101428" duration="15164000" />
+      <workItem from="1648100692980" duration="3375000" />
     </task>
     <task id="LOCAL-00001" summary="分页功能实现">
       <created>1647167932781</created>
@@ -401,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647854581944</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="移动端实现体检预约功能">
+      <created>1647933917611</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1647933917611</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +463,8 @@
     <MESSAGE value="实现预约管理页面功能" />
     <MESSAGE value="移动端套餐列表页面实现" />
     <MESSAGE value="移动端套餐列表和详细页面实现静态页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="移动端套餐列表和详细页面实现静态页面" />
+    <MESSAGE value="移动端实现体检预约功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="移动端实现体检预约功能" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

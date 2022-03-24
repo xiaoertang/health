@@ -34,8 +34,8 @@ public class DateUtils {
             return null;
         }
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-        Date date = sdf.parse(dateString);
-        return date;
+
+        return sdf.parse(dateString);
     }
 
     /**

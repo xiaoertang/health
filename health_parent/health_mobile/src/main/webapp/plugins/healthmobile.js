@@ -38,13 +38,10 @@ function getSpecifiedDate(date,days) {
 }
 
 /**
- * 手机号校验
- 1--以1为开头；
- 2--第二位可为3,4,5,7,8,中的任意一位；
- 3--最后以0-9的9个整数结尾。
+ * 邮箱校验
  */
-function checkTelephone(telephone) {
-    var reg=/^[1][3,4,5,7,8][0-9]{9}$/;
+function checkEmail(telephone) {
+    var reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     if (!reg.test(telephone)) {
         return false;
     } else {

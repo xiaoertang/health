@@ -30,7 +30,7 @@
         from t_ordersetting
         where orderDate between #{dateBegin} and #{dateEnd}
     </select>
-    <select id="findByOrderDate" parameterType="date" resultType="com.example.pojo.OrderSetting">
+    <select id="findByOrderDate" parameterType="string" resultType="com.example.pojo.OrderSetting">
         select *
         from t_ordersetting
         where orderDate = #{orderDate}

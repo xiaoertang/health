@@ -51,4 +51,9 @@
     <select id="findById" resultMap="findByIdResultMap">
         select * from t_setmeal  where id=#{id}
     </select>
+    <select id="findById2" resultType="com.example.pojo.Setmeal" parameterType="int">
+        select *
+        from t_setmeal
+        where id = #{id}
+    </select>
 </mapper>

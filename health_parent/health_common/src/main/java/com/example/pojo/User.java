@@ -10,13 +10,13 @@ import java.util.Set;
  */
 public class User implements Serializable{
     private Integer id; // 主键
-    private Date birthday; // 生日
+    private String birthday; // 生日
     private String gender; // 性别
     private String username; // 用户名，唯一
     private String password; // 密码
     private String remark; // 备注
     private String station; // 状态
-    private String telephone; // 联系电话
+    private String email; // 邮箱
     private Set<Role> roles = new HashSet<Role>(0);//对应角色集合
 
     public Integer getId() {
@@ -27,11 +27,11 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -75,12 +75,12 @@ public class User implements Serializable{
         this.station = station;
     }
 
-    public String getTelephone() {
-        return telephone;
+    public String getEmail() {
+        return email;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Set<Role> getRoles() {

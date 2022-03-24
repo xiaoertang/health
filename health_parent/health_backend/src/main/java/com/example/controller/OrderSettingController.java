@@ -35,7 +35,7 @@ public class OrderSettingController {
                 List<OrderSetting> orderSettingList = new ArrayList<>();
                 for (String[] string : list) {
                     OrderSetting orderSetting = new OrderSetting(
-                             new Date(string[0]), Integer.parseInt(string[1])
+                             string[0], Integer.parseInt(string[1])
                     );
                     orderSettingList.add(orderSetting);
                 }

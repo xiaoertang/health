@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: jline:jline:0.9.94">
     <CLASSES>
-      <root url="jar://D:/apache-maven/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar!/" />
+      <root url="jar://G:/新建文件夹/黑马程序员/资料-传智健康项目/day01/资源/repository_boot/repository_boot/jline/jline/0.9.94/jline-0.9.94.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://D:/apache-maven/.m2/repository/jline/jline/0.9.94/jline-0.9.94-javadoc.jar!/" />
+      <root url="jar://G:/新建文件夹/黑马程序员/资料-传智健康项目/day01/资源/repository_boot/repository_boot/jline/jline/0.9.94/jline-0.9.94-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://D:/apache-maven/.m2/repository/jline/jline/0.9.94/jline-0.9.94-sources.jar!/" />
+      <root url="jar://G:/新建文件夹/黑马程序员/资料-传智健康项目/day01/资源/repository_boot/repository_boot/jline/jline/0.9.94/jline-0.9.94-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -5,9 +5,7 @@ import com.example.constant.MessageConstant;
 import com.example.entity.Result;
 import com.example.pojo.Setmeal;
 import com.example.service.SetMealService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,7 +30,7 @@ public class SetMealController {
         }
     }
 
-    @GetMapping("/findById")
+    @PostMapping("/findById")
     public Result findById(Integer id){
         try{
             Setmeal setmeal = setMealService.findById(id);

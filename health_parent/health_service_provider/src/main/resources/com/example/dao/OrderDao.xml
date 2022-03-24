@@ -16,32 +16,26 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into t_order(member_id, orderDate, orderType, orderStatus, setmeal_id)
-        VALUES(#{memberId},#{orderDate},#{orderType}),#{orderStatus},#{setmealId})
+        VALUES(#{memberId},#{orderDate},#{orderType},#{orderStatus},#{setmealId})
     </insert>
     <!--    动态查询条件-->
-    <select id="findByCondition"
-            resultMap="baseResultMap"
-            parameterType="com.example.pojo.Order">
-        select * from t_order
-        <where>
-            <if test="id != null">
-                and id=#{id}
-            </if>
-            <if test="memberId != null">
-                and memberId = #{memberId}
-            </if>
-            <if test="orderDate != null">
-                and orderDate = #{orderDate}
-            </if>
-            <if test="orderType != null">
-                and orderType = #{orderType}
-            </if>
-            <if test="orderStatus != null">
-                and orderStatus = #{orderStatus}
-            </if>
-            <if test="setmealId != null">
-                and setmealId = #{setmealId}
-            </if>
-        </where>
+    <select id="findByDate"
+            parameterType="com.example.pojo.Order"
+            resultMap="baseResultMap">
+        select *
+        from t_order
+        where orderDate = #{orderDate}
+
     </select>
+    <!--根据预约id查询预约信息，包括体检人信息、套餐信息-->
+        <select id="findById4Detail" parameterType="int" resultType="com.example.service.VO.OrderInfo">
+            select m.name as member, s.name as setmeal, o.orderDate as orderDate, o.orderType as orderType
+            from t_order o,
+                 t_member m,
+                 t_setmeal s
+            where o.member_id = m.id
+              and o.setmeal_id = s.id
+              and o.id = #{id}
+        </select>
+
 </mapper>

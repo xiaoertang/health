@@ -23,4 +23,6 @@ public interface SetMealDao {
     public List<Setmeal> findAll();
     //根据id查询
     public Setmeal findById(Integer id);
+    //根据id查询
+    public Setmeal findById2(Integer id);
 }

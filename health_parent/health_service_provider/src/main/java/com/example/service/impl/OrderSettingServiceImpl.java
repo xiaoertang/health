@@ -33,7 +33,7 @@ public class OrderSettingServiceImpl implements OrderSettingService {
                 //将Date格式的日期，置成“yyyy-MM--dd"格式与数据库中的日期进行比较
 //                SimpleDateFormat sDate = new SimpleDateFormat("yyyy-MM-dd");
 //                String date = sDate.format(orderSetting.getOrderDate());
-                String date = DateUtils.parseDate2String(orderSetting.getOrderDate());
+                String date = orderSetting.getOrderDate();
                 //检查此数据（日期）是否存在
                 long count = orderSettingDao.findCountByOrderDate(date);
                 if (count > 0) {
@@ -66,7 +66,7 @@ public class OrderSettingServiceImpl implements OrderSettingService {
         List<Map> data = new ArrayList<>();
         for (OrderSetting orderSetting : list) {
             Map<String, Object> m = new HashMap<>();
-            m.put("date", orderSetting.getOrderDate().getDate());//获得日期（几号）
+            m.put("date", orderSetting.getOrderDate().substring(8));//获得日期（几号）
             m.put("number", orderSetting.getNumber());//预约人数
             m.put("reservations", orderSetting.getReservations());//已预约人数
             data.add(m);
@@ -76,11 +76,7 @@ public class OrderSettingServiceImpl implements OrderSettingService {
 
     @Override
     public void editNumberByDate(OrderSetting orderSetting) throws Exception {
-//        Date orderDate = orderSetting.getOrderDate();
-//        //将Date格式的日期，置成“yyyy-MM--dd"格式与数据库中的日期进行比较
-//        SimpleDateFormat sDate = new SimpleDateFormat("yyyy-MM-dd");
-//        String date = sDate.format(orderDate);
-        String date = DateUtils.parseDate2String(orderSetting.getOrderDate());
+        String date = orderSetting.getOrderDate();
         long count = orderSettingDao.findCountByOrderDate(date);
         if (count > 0) {
             //将预约时间和预约人数添加到map，通过map进行更新数据
