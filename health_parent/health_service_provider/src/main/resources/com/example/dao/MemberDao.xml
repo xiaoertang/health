@@ -27,4 +27,9 @@
         from t_member
         where id=#{id}
     </select>
+    <select id="findMemberCountBeforeDate" resultType="java.lang.Integer" parameterType="string">
+        select count(id)
+        from t_member
+        where regTime &lt;= #{date}
+    </select>
 </mapper>

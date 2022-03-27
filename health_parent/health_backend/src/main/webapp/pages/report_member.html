@@ -41,6 +41,7 @@
     //myChart.setOption(option);
 
     axios.get("/report/getMemberReport.do").then((res) => {
+        if (res.data.flag){
         myChart1.setOption(
             {
                 title: {
@@ -62,6 +63,9 @@
                     data: res.data.data.memberCount
                 }]
             });
+        }else{
+            this.$message.error(res.data.message);
+        }
     });
 </script>
 </html>
