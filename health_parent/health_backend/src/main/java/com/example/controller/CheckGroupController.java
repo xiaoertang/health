@@ -7,6 +7,7 @@ import com.example.entity.QueryPageBean;
 import com.example.entity.Result;
 import com.example.pojo.CheckGroup;
 import com.example.service.CheckGroupService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.ResultSet;
@@ -24,6 +25,8 @@ public class CheckGroupController {
     private CheckGroupService checkGroupService;
 
     //新增检查组
+    // 权限校验
+    @PreAuthorize("hasAnyAuthority('CHECKGROUP_ADD')")
     @PostMapping("/add")
     public Result add(@RequestBody CheckGroup checkGroup, Integer[] checkitemIds) {
         try {
@@ -49,6 +52,7 @@ public class CheckGroupController {
     }
 
     //删除当前选中的记录
+    @PreAuthorize("hasAnyAuthority('CHECKGROUP_DELETEE')")
     @DeleteMapping("/delete")
     public Result delete(Integer id) {
         try {
@@ -84,6 +88,7 @@ public class CheckGroupController {
         }
     }
     //编辑
+    @PreAuthorize("hasAnyAuthority('CHECKGROUP_EDIT')")
     @PostMapping("/edit")
     public Result edit(@RequestBody CheckGroup checkGroup,Integer[] checkitemIds){
         try {

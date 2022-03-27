@@ -6,6 +6,7 @@ import com.example.entity.Result;
 import com.example.pojo.OrderSetting;
 import com.example.service.OrderSettingService;
 import com.example.utils.POIUtils;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,7 +36,7 @@ public class OrderSettingController {
                 List<OrderSetting> orderSettingList = new ArrayList<>();
                 for (String[] string : list) {
                     OrderSetting orderSetting = new OrderSetting(
-                             string[0], Integer.parseInt(string[1])
+                            string[0], Integer.parseInt(string[1])
                     );
                     orderSettingList.add(orderSetting);
                 }
@@ -47,7 +48,7 @@ public class OrderSettingController {
         }
         return new Result(true, MessageConstant.IMPORT_ORDERSETTING_SUCCESS);
     }
-
+    @PreAuthorize("hasAnyAuthority('ORDERSETTING')") //权限校验
     @PostMapping("/getOrderSettingByMonth")
     public Result getOrderSettingByMonth(String date) { //参数格式为：2022-3
         try {

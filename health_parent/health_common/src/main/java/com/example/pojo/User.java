@@ -1,8 +1,11 @@
 package com.example.pojo;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,6 +21,8 @@ public class User implements Serializable{
     private String station; // 状态
     private String email; // 邮箱
     private Set<Role> roles = new HashSet<Role>(0);//对应角色集合
+
+
 
     public Integer getId() {
         return id;

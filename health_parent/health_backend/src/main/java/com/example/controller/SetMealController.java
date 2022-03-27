@@ -11,6 +11,7 @@ import com.example.pojo.Setmeal;
 import com.example.service.SetMealService;
 import com.example.utils.QiniuUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import redis.clients.jedis.JedisPool;
@@ -56,6 +57,7 @@ public class SetMealController {
         }
     }
     //新增检查组
+    @PreAuthorize("hasAnyAuthority('SETMEAL_ADD')")//权限校验
     @PostMapping("/add")
     public Result add(@RequestBody Setmeal setmeal, Integer[] checkgroupIds) {
         try {
