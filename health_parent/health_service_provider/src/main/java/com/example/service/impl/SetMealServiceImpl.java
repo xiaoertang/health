@@ -136,4 +136,9 @@ public class SetMealServiceImpl implements SetMealService {
     public Setmeal findById(Integer id) {
         return setMealDao.findById(id);
     }
+
+    @Override
+    public List<Map<String, Object>> findSetmealCount() {
+        return setMealDao.findSetmealCount();
+    }
 }

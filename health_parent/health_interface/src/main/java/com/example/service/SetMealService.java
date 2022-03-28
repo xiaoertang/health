@@ -5,6 +5,7 @@ import com.example.pojo.CheckGroup;
 import com.example.pojo.Setmeal;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 唐孝顺
@@ -19,4 +20,6 @@ public interface SetMealService {
     public List<Setmeal> findAll();
     //根据id查询
     public Setmeal findById(Integer id);
+    //统计每项套餐
+    public List<Map<String,Object>> findSetmealCount();
 }

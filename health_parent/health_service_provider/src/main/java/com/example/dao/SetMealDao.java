@@ -4,6 +4,7 @@ import com.example.pojo.CheckGroup;
 import com.example.pojo.Setmeal;
 import com.example.service.SetMealService;
 import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.MapKey;
 
 import java.util.List;
 import java.util.Map;
@@ -25,4 +26,6 @@ public interface SetMealDao {
     public Setmeal findById(Integer id);
     //根据id查询
     public Setmeal findById2(Integer id);
+    @MapKey(value = "")
+    public List<Map<String, Object>> findSetmealCount();
 }
