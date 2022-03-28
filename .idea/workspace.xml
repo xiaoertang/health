@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de890d82-617d-4d6e-b893-616eb1d94230" name="Default Changelist" comment="后端添加会员统计图">
-      <change afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/report_business.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/report_setmeal.html" afterDir="false" />
+    <list default="true" id="de890d82-617d-4d6e-b893-616eb1d94230" name="Default Changelist" comment="后端添加套餐统计饼图">
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_interface/src/main/java/com/example/service/ReportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/ReportServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_interface/src/main/java/com/example/service/SetMealService.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_interface/src/main/java/com/example/service/SetMealService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/SetMealDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/SetMealDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/SetMealServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/service/impl/SetMealServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/SetMealDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/SetMealDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/java/com/example/controller/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/report_business.html" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_backend/src/main/webapp/pages/report_business.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/MemberDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/java/com/example/dao/OrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/MemberDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/MemberDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/OrderDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/health_parent/health_service_provider/src/main/resources/com/example/dao/OrderDao.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +110,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -252,7 +266,7 @@
       <workItem from="1648177289870" duration="7068000" />
       <workItem from="1648356733083" duration="4732000" />
       <workItem from="1648363358405" duration="16277000" />
-      <workItem from="1648446879977" duration="6097000" />
+      <workItem from="1648446879977" duration="8309000" />
     </task>
     <task id="LOCAL-00001" summary="分页功能实现">
       <created>1647167932781</created>
@@ -359,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648379280668</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="后端添加套餐统计饼图">
+      <created>1648454924087</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1648454924088</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +414,8 @@
     <MESSAGE value="移动端实现会员登录功能" />
     <MESSAGE value="后端增加登录/退出功能" />
     <MESSAGE value="后端添加会员统计图" />
-    <option name="LAST_COMMIT_MESSAGE" value="后端添加会员统计图" />
+    <MESSAGE value="后端添加套餐统计饼图" />
+    <option name="LAST_COMMIT_MESSAGE" value="后端添加套餐统计饼图" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

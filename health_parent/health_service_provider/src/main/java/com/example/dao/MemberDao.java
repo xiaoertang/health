@@ -15,4 +15,10 @@ public interface MemberDao {
     public Member findById(Integer id);
     //根据当前月查询之前月份的个数
     public Integer findMemberCountBeforeDate(String date);
+   //根据当前日期查询
+    public Integer findMemberCountByDate(String date);
+    //根据本月1号日期统计
+    public Integer findMemberCountAfterDate(String date);
+    //总个数
+    public Integer findMemberTotalCount();
 }

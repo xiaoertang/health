@@ -22,6 +22,11 @@ public interface OrderDao {
     //根据id查询预约信息，包括体检人信息、套餐信息
     @MapKey("id")
     public OrderInfo findById4Detail(Integer id);
-
+    public Integer findOrderCountByDate(String date);
+    public Integer findOrderCountAfterDate(String date);
+    public Integer findVisitsCountByDate(String date);
+    public Integer findVisitsCountAfterDate(String date);
+    @MapKey("")
+    public List<Map> findHotSetmeal();
 
 }

@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.example.constant.MessageConstant;
 import com.example.entity.Result;
 import com.example.service.MemberService;
+import com.example.service.ReportService;
 import com.example.service.SetMealService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,8 @@ public class ReportController {
     private MemberService memberService;
     @Reference
     private SetMealService setMealService;
-
+    @Reference
+    private ReportService reportService;
     @GetMapping("/getMemberReport")
     public Result getMemberReport() {
         try {
@@ -70,6 +72,16 @@ public class ReportController {
         }catch (Exception e){
             e.printStackTrace();
             return new Result(false, MessageConstant.GET_SETMEAL_COUNT_REPORT_FAIL);
+        }
+    }
+    @GetMapping("/getBusinessReportData")
+    public Result getBusinessReportData(){
+        try{
+            Map<String, Object> businessReport = reportService.getBusinessReport();
+            return new Result(true,MessageConstant.GET_BUSINESS_REPORT_SUCCESS,businessReport);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,MessageConstant.GET_BUSINESS_REPORT_FAIL);
         }
     }
 }
